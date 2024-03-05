@@ -1,0 +1,41 @@
+<html>
+<head>
+<style>
+
+    body {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 25px;
+    }
+
+    h1 {
+        color: red;
+    }
+
+</style>
+</head>
+
+
+<body>
+    <h1>Weather Stats</h1><br>
+    <form method="Post">
+        <label>Enter Location Coordinates</label><br><br>
+        <input placeholder="Latitude" name="'latitude">
+        <input placeholder="Longitude" name="longitude">
+        <input type="submit">
+    </form>
+    {% if weather %}
+    <center>
+        <table>
+            <tr><td colspan="2"><img src="{{https://weather-l6tl.onrender.com/api/getCurrentWeather/31/76}}"></img></td></tr>
+            <tr><td>Place</td><td>{{ weather.data.name}}</td></tr>
+            <tr><td>Region</td><td>{{ weather.data.region}}</td></tr>
+            <tr><td>Country</td><td>{{ weather.data.country}}</td></tr>
+            <tr><td>Condition</td><td>{{ weather.data.condition.text}}</td></tr>
+            <tr><td>Temperature</td><td>{{ weather.data.temp_c}}</td></tr>
+        </table>
+    </center>
+    {% endif %}
+    <p>You have {{ count }} Visitors.</p>
+</body>
+</html>
